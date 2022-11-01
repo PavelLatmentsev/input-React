@@ -1,11 +1,19 @@
 import React from "react";  
+import { useState } from "react";
 const Modal = () => {
-    return ( <>
 
-<button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+const [toogle, setToogle] =useState("false");
+
+const toogleButton=() => {
+  setToogle("true")
+}
+
+    return ( <div>
+
+<button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={toogleButton}>
   Launch demo modal
 </button>
-<div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden={toogle}>
   <div className="modal-dialog">
     <div className="modal-content">
       <div className="modal-header">
@@ -22,7 +30,7 @@ const Modal = () => {
     </div>
   </div>
 </div>
-    </> );
+    </div> );
 }
  
 export default Modal;
